@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementSide : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _Rigidbody;
+    [SerializeField] private Rigidbody2D _Rigidbody;
     [SerializeField] private float _speed = 10;
     [SerializeField] private Vector3 _jumpVector = new Vector3(0,1,0);
     [SerializeField] private float _force = 10;
@@ -21,6 +21,10 @@ public class MovementSide : MonoBehaviour
         gameObject.transform.position = new Vector3(transform.position.x + (h * _speed * Time.deltaTime),
             transform.position.y, transform.position.z);
 
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     _Rigidbody.AddForce(_force * _jumpVector, ForceMode.Impulse);
+        // }
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             jumping = true;
