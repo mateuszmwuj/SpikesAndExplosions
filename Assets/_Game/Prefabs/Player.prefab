@@ -263,8 +263,8 @@ MonoBehaviour:
   pointer1: {fileID: 84216521475154516}
   player2Animator: {fileID: 2186930326478144501}
   pointer2: {fileID: 3858384511311448134}
-  turnOffColliderIgnoreTimer: 0.3
-  JumpTimerPlatformStopTimer: 0.3
+  turnOffColliderIgnoreTimer: 0.2
+  JumpTimerPlatformStopTimer: 0.2
 --- !u!50 &2189207385956404635
 Rigidbody2D:
   serializedVersion: 4
@@ -420,7 +420,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2189207385956404636}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: cca9e15d1cf6abe4c94aa2f8ed07ce55, type: 2}
   m_IsTrigger: 0
