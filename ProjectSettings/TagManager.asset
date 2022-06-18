@@ -16,10 +16,10 @@ TagManager:
   - Player2
   - Grounds
   - Platform
-  - 
+  - PlayerBullet
   - Camera
-  - 
-  - 
+  - EnemyBullet
+  - Enemy
   - 
   - 
   - 
