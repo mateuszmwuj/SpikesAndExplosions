@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 2189207385956404612}
   - component: {fileID: 1434627883790958661}
   - component: {fileID: 3130332500794899170}
+  - component: {fileID: 7173152107169484518}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -473,6 +474,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 26798e66-b004-40ce-a36d-ac3bc54648e3
     m_ActionName: Gamepad/PointerMove[/DualShock4GamepadHID1/leftStick,/DualShock4GamepadHID2/leftStick,/DualShock4GamepadHID/leftStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7173152107169484518}
+        m_TargetAssemblyTypeName: PlayerShooter, Assembly-CSharp
+        m_MethodName: Fire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 725d3a37-800c-47c2-8ec1-0d417a23832c
+    m_ActionName: Gamepad/Fire[/DualShock4GamepadHID1/buttonWest,/DualShock4GamepadHID2/buttonWest,/DualShock4GamepadHID/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gamepad
@@ -554,6 +571,19 @@ PolygonCollider2D:
       - {x: 0.899839, y: -0.49628744}
       - {x: 0.92922354, y: -0.26751715}
       - {x: 0.9730485, y: 0.28239763}
+--- !u!114 &7173152107169484518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2189207385956404636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccb3f8f09e49fe408e075631f4238e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ShootingBullet: {fileID: 0}
 --- !u!1 &2189207386192419070
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +987,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf668a11cb4e07b44ae3f399143a673a, type: 3}
+--- !u!95 &84216521109582909 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1609211176216560512, guid: bf668a11cb4e07b44ae3f399143a673a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1692829487807248317}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &84216521475154516 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1609211175842633193, guid: bf668a11cb4e07b44ae3f399143a673a,
@@ -978,12 +1014,6 @@ GameObject:
 --- !u!4 &84216521109582851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1609211176216560574, guid: bf668a11cb4e07b44ae3f399143a673a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1692829487807248317}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &84216521109582909 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1609211176216560512, guid: bf668a11cb4e07b44ae3f399143a673a,
     type: 3}
   m_PrefabInstance: {fileID: 1692829487807248317}
   m_PrefabAsset: {fileID: 0}
