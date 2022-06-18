@@ -14,8 +14,11 @@ public class PlayerMovement : MonoBehaviour {
     public bool isGround = true;
     public int player = 0;
     public int playerLayer = 6;
+    private bool jumpState = false;
 
     public float turnOffColliderIgnoreTimer = 0.2f;
+    public float JumpTimerPlatformStopTimer = 0.1f;
+
     // Start is called before the first frame update
     void Start() {
         player = GetComponent<PlayerInput>().user.index;
@@ -64,16 +67,44 @@ public class PlayerMovement : MonoBehaviour {
         Physics2D.IgnoreLayerCollision(playerLayer, 9, false);
     }
 
+    private IEnumerator JumpTimerPlatformStop(float timer) {
+        jumpState = true;
+        yield return new WaitForSeconds(timer);
+        jumpState = false;
+
+    }
+
     public void Jump(InputAction.CallbackContext context) {
-        if (isPlatform || isGround) {
-           jump = true;
-            Physics2D.IgnoreLayerCollision(playerLayer, 9, true);
-            StartCoroutine(DontIgnorePlatformCollider(turnOffColliderIgnoreTimer));
-        }   
+        if (jumpState == false) {
+            if (isPlatform || isGround) {
+                jump = true;
+                StartCoroutine(JumpTimerPlatformStop(JumpTimerPlatformStopTimer));
+                Physics2D.IgnoreLayerCollision(playerLayer, 9, true);
+                StartCoroutine(DontIgnorePlatformCollider(turnOffColliderIgnoreTimer));
+            }
+        }
     }
 
     public void Move(InputAction.CallbackContext context) {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+    }
+
+    public void JumpDown(InputAction.CallbackContext context) {
+        if (isPlatform || isGround) {
+            StartCoroutine(JumpTimerPlatformStop(JumpTimerPlatformStopTimer));
+            Physics2D.IgnoreLayerCollision(playerLayer, 9, true);
+            StartCoroutine(DontIgnorePlatformCollider(turnOffColliderIgnoreTimer));
+        }
+    }
+
+    public void PressDown(InputAction.CallbackContext context) {
+
+        if (GetComponent<PlayerInput>().actions["PressDown"].IsPressed()) {
+            jumpState = true;
+        }
+        else {
+            jumpState = false;
+        }
     }
 
 }
