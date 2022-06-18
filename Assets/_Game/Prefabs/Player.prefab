@@ -255,9 +255,12 @@ MonoBehaviour:
   jump: 0
   isPlatform: 0
   isGround: 1
-  player: 1
+  playerIndex: 0
   playerLayer: 6
-  pointer: {fileID: 424456979}
+  player1Animator: {fileID: 84216521109582909}
+  pointer1: {fileID: 84216521475154516}
+  player2Animator: {fileID: 2186930326478144501}
+  pointer2: {fileID: 3858384511311448134}
   turnOffColliderIgnoreTimer: 0.3
   JumpTimerPlatformStopTimer: 0.3
 --- !u!50 &2189207385956404635
@@ -646,6 +649,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1440444730188867963}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2186930326478144501 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 983180351868234382, guid: 401002536ab3a8841a1a15ed207205e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1440444730188867963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3858384511311448134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2771614399472542013, guid: 401002536ab3a8841a1a15ed207205e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1440444730188867963}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1692829487807248317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -729,6 +744,18 @@ GameObject:
 --- !u!4 &84216521109582851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1609211176216560574, guid: bf668a11cb4e07b44ae3f399143a673a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1692829487807248317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &84216521109582909 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1609211176216560512, guid: bf668a11cb4e07b44ae3f399143a673a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1692829487807248317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &84216521475154516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1609211175842633193, guid: bf668a11cb4e07b44ae3f399143a673a,
     type: 3}
   m_PrefabInstance: {fileID: 1692829487807248317}
   m_PrefabAsset: {fileID: 0}

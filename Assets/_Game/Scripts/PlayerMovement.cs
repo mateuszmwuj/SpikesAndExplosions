@@ -14,24 +14,32 @@ public class PlayerMovement : MonoBehaviour {
     public bool jump = false;
     public bool isPlatform;
     public bool isGround = true;
-    public int player = 0;
+    public int playerIndex = 0;
     public int playerLayer = 6;
     private bool jumpState = false;
     private Rigidbody2D _rb;
 
-    public GameObject pointer;
+    public Animator player1Animator;
+    public GameObject pointer1;
+    public Animator player2Animator;
+    public GameObject pointer2;
 
     public float turnOffColliderIgnoreTimer = 0.2f;
     public float JumpTimerPlatformStopTimer = 0.1f;
 
+    private string SLUG_MOVE_BOOL = "move";
+    private string SLUG_IDLE_TRIGGER = "idle";
+    private string SLUG_JUMP_TRIGGER = "jump";
+    
+
     // Start is called before the first frame update
     void Start() {
-        player = GetComponent<PlayerInput>().user.index;
-        playerLayer += player;
+        playerIndex = GetComponent<PlayerInput>().user.index;
+        playerLayer += playerIndex;
         gameObject.layer = playerLayer;
         _rb = GetComponent<Rigidbody2D>();
 
-        var isFirstPlayer = player == 0? true : false; 
+        var isFirstPlayer = playerIndex == 0? true : false; 
         if (_Slug1) 
             _Slug1.SetActive(isFirstPlayer);
         if (_Slug2) 
@@ -90,6 +98,8 @@ public class PlayerMovement : MonoBehaviour {
     public void Jump(InputAction.CallbackContext context) {
         if (jumpState == false) {
             if (isPlatform || isGround) {
+                player1Animator.SetTrigger(SLUG_JUMP_TRIGGER);
+
                 jump = true;
                 StartCoroutine(JumpTimerPlatformStop(JumpTimerPlatformStopTimer));
                 Physics2D.IgnoreLayerCollision(playerLayer, 9, true);
@@ -102,7 +112,13 @@ public class PlayerMovement : MonoBehaviour {
    
         if (GetComponent<PlayerInput>().actions["Move"].IsPressed()) {
             horizontalMove = context.ReadValue<Vector2>().x;
+            player1Animator.SetBool(SLUG_MOVE_BOOL, true);
+
         }else {
+
+            player1Animator.SetTrigger(SLUG_IDLE_TRIGGER);
+            player1Animator.SetBool(SLUG_MOVE_BOOL, false);
+
             horizontalMove = 0;
         }
     }
@@ -126,6 +142,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void PointerMove(InputAction.CallbackContext context) {
+        var pointer = playerIndex == 0 ? pointer1 : pointer2;
+
         if (GetComponent<PlayerInput>().actions["PointerMove"].IsPressed()){
             pointer.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * Mathf.Rad2Deg, -Vector3.forward);
             var newAngleZ = Mathf.Round((pointer.transform.eulerAngles.z) / 45) * 45;
