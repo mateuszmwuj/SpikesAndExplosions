@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour {
     public int player = 0;
     public int playerLayer = 6;
     private bool jumpState = false;
+    private Rigidbody2D _rb;
+
+    public GameObject pointer;
 
     public float turnOffColliderIgnoreTimer = 0.2f;
     public float JumpTimerPlatformStopTimer = 0.1f;
@@ -24,15 +27,17 @@ public class PlayerMovement : MonoBehaviour {
         player = GetComponent<PlayerInput>().user.index;
         playerLayer += player;
         gameObject.layer = playerLayer;
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update() {
-        
+    
+            
     }
 
     void FixedUpdate() {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime * runSpeed, false, jump);
         jump = false;
         
     }
@@ -86,7 +91,12 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void Move(InputAction.CallbackContext context) {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+   
+        if (GetComponent<PlayerInput>().actions["Move"].IsPressed()) {
+            horizontalMove = context.ReadValue<Vector2>().x;
+        }else {
+            horizontalMove = 0;
+        }
     }
 
     public void JumpDown(InputAction.CallbackContext context) {
@@ -105,6 +115,18 @@ public class PlayerMovement : MonoBehaviour {
         else {
             jumpState = false;
         }
+    }
+
+    public void PointerMove(InputAction.CallbackContext context) {
+        if (GetComponent<PlayerInput>().actions["PointerMove"].IsPressed()){
+            pointer.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * Mathf.Rad2Deg, -Vector3.forward);
+            var newAngleZ = Mathf.Round((pointer.transform.eulerAngles.z) / 45) * 45;
+            pointer.transform.eulerAngles = new Vector3(pointer.transform.eulerAngles.x, pointer.transform.eulerAngles.y, newAngleZ);
+        }else {
+
+            pointer.transform.eulerAngles = new Vector3(pointer.transform.eulerAngles.x, pointer.transform.eulerAngles.y, -90*transform.localScale.x);
+        }
+ 
     }
 
 }
