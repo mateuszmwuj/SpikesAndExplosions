@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour {
 
+    [SerializeField] private GameObject _Slug1;
+    [SerializeField] private GameObject _Slug2;
     public CharacterController2D controller;
     public float runSpeed = 40f;
     public float horizontalMove = 0f;
@@ -28,6 +30,12 @@ public class PlayerMovement : MonoBehaviour {
         playerLayer += player;
         gameObject.layer = playerLayer;
         _rb = GetComponent<Rigidbody2D>();
+
+        var isFirstPlayer = player == 0? true : false; 
+        if (_Slug1) 
+            _Slug1.SetActive(isFirstPlayer);
+        if (_Slug2) 
+            _Slug2.SetActive(!isFirstPlayer);
     }
 
     // Update is called once per frame

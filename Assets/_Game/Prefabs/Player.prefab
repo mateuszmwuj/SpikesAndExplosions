@@ -247,6 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e8d0df62810ed4db459a1c49f1deae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Slug1: {fileID: 84216521109582910}
+  _Slug2: {fileID: 2186930326478144490}
   controller: {fileID: 2189207385956404633}
   runSpeed: 40
   horizontalMove: 0
@@ -632,6 +634,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 401002536ab3a8841a1a15ed207205e1, type: 3}
+--- !u!1 &2186930326478144490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 983180351868234385, guid: 401002536ab3a8841a1a15ed207205e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1440444730188867963}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2186930326478144503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 983180351868234380, guid: 401002536ab3a8841a1a15ed207205e1,
@@ -649,6 +657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SlugPlayer1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609211176216560515, guid: bf668a11cb4e07b44ae3f399143a673a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1609211176216560574, guid: bf668a11cb4e07b44ae3f399143a673a,
         type: 3}
@@ -707,6 +720,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf668a11cb4e07b44ae3f399143a673a, type: 3}
+--- !u!1 &84216521109582910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1609211176216560515, guid: bf668a11cb4e07b44ae3f399143a673a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1692829487807248317}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &84216521109582851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1609211176216560574, guid: bf668a11cb4e07b44ae3f399143a673a,
