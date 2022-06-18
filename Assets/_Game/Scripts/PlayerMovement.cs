@@ -100,6 +100,7 @@ public class PlayerMovement : MonoBehaviour {
             if (isPlatform || isGround) {
                 jump = true;
                 player1Animator.SetTrigger(SLUG_JUMP_TRIGGER);
+                player2Animator.SetTrigger(SLUG_JUMP_TRIGGER);
                 StartCoroutine(JumpTimerPlatformStop(JumpTimerPlatformStopTimer));
                 Physics2D.IgnoreLayerCollision(playerLayer, 9, true);
                 StartCoroutine(DontIgnorePlatformCollider(turnOffColliderIgnoreTimer));
@@ -108,16 +109,16 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void Move(InputAction.CallbackContext context) {
-   
+        var playerAnimator = playerIndex == 0 ? player1Animator : player2Animator;
         if (GetComponent<PlayerInput>().actions["Move"].IsPressed()) {
             horizontalMove = context.ReadValue<Vector2>().x;
-            player1Animator.SetBool(SLUG_MOVE_BOOL, true);
+            playerAnimator.SetBool(SLUG_MOVE_BOOL, true);
 
         }else {
 
-            player1Animator.SetTrigger(SLUG_IDLE_TRIGGER);
-            player1Animator.SetBool(SLUG_MOVE_BOOL, false);
-
+            playerAnimator.SetTrigger(SLUG_IDLE_TRIGGER);
+            playerAnimator.SetBool(SLUG_MOVE_BOOL, false);
+            
             horizontalMove = 0;
         }
     }
@@ -138,13 +139,13 @@ public class PlayerMovement : MonoBehaviour {
         else {
             jumpState = false;
         }
-    }
+    }   
 
     public void PointerMove(InputAction.CallbackContext context) {
         var pointer = playerIndex == 0 ? pointer1 : pointer2;
 
         if (GetComponent<PlayerInput>().actions["PointerMove"].IsPressed()){
-            pointer.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * Mathf.Rad2Deg, -Vector3.forward);
+            pointer.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(context.ReadValue<Vector2>().x, context.ReadValue<Vector2>().y) * Mathf.Rad2Deg, -Vector3.forward);
             var newAngleZ = Mathf.Round((pointer.transform.eulerAngles.z) / 45) * 45;
             pointer.transform.eulerAngles = new Vector3(pointer.transform.eulerAngles.x, pointer.transform.eulerAngles.y, newAngleZ);
         }else {
