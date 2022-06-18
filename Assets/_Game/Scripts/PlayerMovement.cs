@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool jump = false;
     public bool isPlatform;
 
+    public float turnOffColliderIgnoreTimer = 0.2f;
     // Start is called before the first frame update
     void Start() {
         
@@ -21,7 +22,19 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump")){
             jump = true;
+            Physics2D.IgnoreLayerCollision(7, 9, true);
+
+            StartCoroutine(DontIgnorePlatformCollider(turnOffColliderIgnoreTimer));
         }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow) && isPlatform == true) {
+            Debug.Log("pip");
+            Physics2D.IgnoreLayerCollision(7, 9, true);
+
+            StartCoroutine(DontIgnorePlatformCollider(turnOffColliderIgnoreTimer));
+        }
+     
+
     }
 
     void FixedUpdate() {
@@ -29,26 +42,28 @@ public class PlayerMovement : MonoBehaviour {
         jump = false;
 
         
+        
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log($"colision enter: name: {collision.gameObject.name}");
-        
+    {       
         if (collision.gameObject.layer == 9 && !isPlatform) { //check the int value in layer manager(User Defined starts at 8) 
 
             isPlatform = true;
+            
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log($"colision exit: name: {collision.gameObject.name}");
-
         if (collision.gameObject.layer == 9 && isPlatform) {
             isPlatform = false;
         }
     }
-
+    
+    private IEnumerator DontIgnorePlatformCollider(float timer) {
+        yield return new WaitForSeconds(timer);
+        Physics2D.IgnoreLayerCollision(7, 9, false);
+    }
 }
