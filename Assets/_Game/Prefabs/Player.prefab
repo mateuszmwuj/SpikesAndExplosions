@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 1434627883790958661}
   - component: {fileID: 3130332500794899170}
   - component: {fileID: 7173152107169484518}
+  - component: {fileID: 2497058427625349439}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -220,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d6029fccb21b6489c1c6b72e8c10fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 600
+  m_JumpForce: 650
   m_CrouchSpeed: 0.068
   m_MovementSmoothing: 0.05
   m_AirControl: 1
@@ -419,7 +420,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2189207385956404636}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: cca9e15d1cf6abe4c94aa2f8ed07ce55, type: 2}
   m_IsTrigger: 0
@@ -444,10 +445,15 @@ PolygonCollider2D:
       - {x: -1.0313461, y: 0.55066127}
       - {x: -0.98812973, y: 0.08711226}
       - {x: -0.8245282, y: -0.3067505}
-      - {x: -0.6874355, y: -0.5001796}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.5, y: -0.5}
-      - {x: 0.899839, y: -0.49628744}
+      - {x: -0.8318174, y: -0.4815661}
+      - {x: -0.58605534, y: -0.53721863}
+      - {x: -0.17015444, y: -0.5319005}
+      - {x: -0.2915249, y: -0.39848503}
+      - {x: -0.22495073, y: -0.4330961}
+      - {x: -0.18462884, y: -0.4182286}
+      - {x: 0.57805455, y: -0.42566237}
+      - {x: 0.83677995, y: -0.5526801}
+      - {x: 0.9706013, y: -0.45486715}
       - {x: 0.92922354, y: -0.26751715}
       - {x: 0.90896165, y: 0.24394551}
 --- !u!60 &3130332500794899170
@@ -482,10 +488,12 @@ PolygonCollider2D:
       - {x: -1.1338851, y: 0.5378438}
       - {x: -1.0458081, y: 0.074294865}
       - {x: -0.8245282, y: -0.3067505}
-      - {x: -0.6874355, y: -0.5001796}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.5, y: -0.5}
-      - {x: 0.899839, y: -0.49628744}
+      - {x: -0.6874355, y: -0.38123938}
+      - {x: -0.4628312, y: -0.40707797}
+      - {x: -0.09894301, y: -0.5337099}
+      - {x: 0.4399291, y: -0.5341244}
+      - {x: 0.5706208, y: -0.436813}
+      - {x: 0.81435066, y: -0.41451603}
       - {x: 0.92922354, y: -0.26751715}
       - {x: 0.9730485, y: 0.28239763}
 --- !u!114 &7173152107169484518
@@ -502,6 +510,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ShootingBulletPlayer1: {fileID: 6219154870844548581}
   _ShootingBulletPlayer2: {fileID: 5602282588722840702}
+--- !u!70 &2497058427625349439
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2189207385956404636}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06504209, y: -0.41629162}
+  m_Size: {x: 1.7545419, y: 0.16743524}
+  m_Direction: 1
 --- !u!1 &2189207386192419070
 GameObject:
   m_ObjectHideFlags: 0
