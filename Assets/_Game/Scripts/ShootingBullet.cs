@@ -7,6 +7,7 @@ public class ShootingBullet : MonoBehaviour
     [SerializeField] private float _ShootDelay;
     [SerializeField] private Bullet _BulletPrefab;
     [SerializeField] private Transform _PrefabSpawner;
+    [SerializeField] private Transform _Gun;
     private bool _canShoot = true;
     private float _timerCounter;
     private float _timerLimit;
@@ -23,7 +24,7 @@ public class ShootingBullet : MonoBehaviour
     {
         if (_canShoot)
         {
-            Instantiate(_BulletPrefab, _PrefabSpawner);
+            Instantiate(_BulletPrefab, _PrefabSpawner.transform.position, _Gun.rotation);
             _canShoot = false;
         }
     }
