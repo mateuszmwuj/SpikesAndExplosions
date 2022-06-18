@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Jump(InputAction.CallbackContext context) {
         if (jumpState == false) {
-            if(_rb.velocity.y >= 0)
+            if(_rb && _rb.velocity.y >= 0)
             {
                 if (isPlatform || isGround) {
                     jump = true;
