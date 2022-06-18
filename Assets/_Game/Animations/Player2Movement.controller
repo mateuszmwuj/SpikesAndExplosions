@@ -59,7 +59,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player1Hide
+  m_Name: Player2Hide
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -73,7 +73,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 713931aeb48c225468d02f577507fcf6, type: 2}
+  m_Motion: {fileID: 7400000, guid: be101b7d58995a149ac461d8ea282abe, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
