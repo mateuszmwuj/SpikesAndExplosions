@@ -98,9 +98,8 @@ public class PlayerMovement : MonoBehaviour {
     public void Jump(InputAction.CallbackContext context) {
         if (jumpState == false) {
             if (isPlatform || isGround) {
-                player1Animator.SetTrigger(SLUG_JUMP_TRIGGER);
-
                 jump = true;
+                player1Animator.SetTrigger(SLUG_JUMP_TRIGGER);
                 StartCoroutine(JumpTimerPlatformStop(JumpTimerPlatformStopTimer));
                 Physics2D.IgnoreLayerCollision(playerLayer, 9, true);
                 StartCoroutine(DontIgnorePlatformCollider(turnOffColliderIgnoreTimer));
