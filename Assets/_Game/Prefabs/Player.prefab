@@ -263,8 +263,8 @@ MonoBehaviour:
   pointer1: {fileID: 84216521475154516}
   player2Animator: {fileID: 2186930326478144501}
   pointer2: {fileID: 3858384511311448134}
-  turnOffColliderIgnoreTimer: 0.2
-  JumpTimerPlatformStopTimer: 0.2
+  turnOffColliderIgnoreTimer: 0.3
+  JumpTimerPlatformStopTimer: 0.3
 --- !u!50 &2189207385956404635
 Rigidbody2D:
   serializedVersion: 4
