@@ -9,9 +9,11 @@ public class EnemyMovement : MonoBehaviour
     public bool playerClose = false;
     public float jumpForce = 2f;
     public Collider2D moveTriger;
+    public int right = 1;
 
     void Start()
     {
+
         _rb = GetComponent<Rigidbody2D>();
         
     }
@@ -19,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         if (playerClose == true) {
-            _rb.velocity = new Vector2(-enemySpeed, _rb.velocity.y);
+            _rb.velocity = new Vector2(-enemySpeed * right, _rb.velocity.y);
         }
        
     }
@@ -32,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     public void Jump() {
-        _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+        _rb.velocity = new Vector2(_rb.velocity.x * right, jumpForce);
     }
 
 }
