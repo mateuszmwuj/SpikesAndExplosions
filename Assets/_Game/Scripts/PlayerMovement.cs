@@ -98,14 +98,17 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Jump(InputAction.CallbackContext context) {
         if (jumpState == false) {
-            if (isPlatform || isGround) {
-                jump = true;
-                player1Animator.SetTrigger(SLUG_JUMP_TRIGGER);
-                player2Animator.SetTrigger(SLUG_JUMP_TRIGGER);
-                StartCoroutine(JumpTimerPlatformStop(JumpTimerPlatformStopTimer));
-                Physics2D.IgnoreLayerCollision(playerLayer, 9, true);
-                StartCoroutine(DontIgnorePlatformCollider(turnOffColliderIgnoreTimer));
-            }
+            if(_rb.velocity.y >= 0)
+            {
+                if (isPlatform || isGround) {
+                    jump = true;
+                    player1Animator.SetTrigger(SLUG_JUMP_TRIGGER);
+                    player2Animator.SetTrigger(SLUG_JUMP_TRIGGER);
+                    StartCoroutine(JumpTimerPlatformStop(JumpTimerPlatformStopTimer));
+                    Physics2D.IgnoreLayerCollision(playerLayer, 9, true);
+                    StartCoroutine(DontIgnorePlatformCollider(turnOffColliderIgnoreTimer));
+                }
+            }   
         }
     }
 
