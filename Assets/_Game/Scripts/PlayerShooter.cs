@@ -21,7 +21,7 @@ public class PlayerShooter : MonoBehaviour
     public void Fire(InputAction.CallbackContext context) {
 
         if (GetComponent<PlayerInput>().actions["Fire"].IsPressed()) {
-            Debug.Log("FIREEEEEEE");
+            // Debug.Log("FIREEEEEEE");
             ShootBullet();
         }
         else {
