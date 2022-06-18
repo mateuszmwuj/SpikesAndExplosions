@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d6029fccb21b6489c1c6b72e8c10fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 650
+  m_JumpForce: 700
   m_CrouchSpeed: 0.068
   m_MovementSmoothing: 0.05
   m_AirControl: 1
@@ -420,7 +420,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2189207385956404636}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: cca9e15d1cf6abe4c94aa2f8ed07ce55, type: 2}
   m_IsTrigger: 0

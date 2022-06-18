@@ -292,7 +292,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.48835, y: -4.105221}
+  m_Offset: {x: 5.48835, y: -4.2681575}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -303,7 +303,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.9591026, y: 0.16660261}
+  m_Size: {x: 6.9591026, y: 0.49247646}
   m_EdgeRadius: 0
 --- !u!483693784 &563964263
 TilemapRenderer:
@@ -3822,7 +3822,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 17.000511, y: -2.0948317}
+  m_Offset: {x: 17.000511, y: -2.2444482}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3833,7 +3833,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 44.013275, y: 0.16926432}
+  m_Size: {x: 44.013275, y: 0.4684975}
   m_EdgeRadius: 0
 --- !u!61 &563964266
 BoxCollider2D:
@@ -3848,7 +3848,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 12.005858, y: -8.099111}
+  m_Offset: {x: 12.005858, y: -8.288158}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3859,7 +3859,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.983755, y: 0.1683979}
+  m_Size: {x: 3.983755, y: 0.54649353}
   m_EdgeRadius: 0
 --- !u!61 &563964267
 BoxCollider2D:
@@ -3874,7 +3874,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 14.99276, y: -6.085553}
+  m_Offset: {x: 14.99276, y: -6.24135}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3885,7 +3885,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0005493, y: 0.13187933}
+  m_Size: {x: 2.0005493, y: 0.4434743}
   m_EdgeRadius: 0
 --- !u!61 &563964268
 BoxCollider2D:
@@ -3900,7 +3900,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 19.996605, y: -4.0965724}
+  m_Offset: {x: 19.996605, y: -4.3023868}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3911,7 +3911,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.9625702, y: 0.17500019}
+  m_Size: {x: 3.9625702, y: 0.5866289}
   m_EdgeRadius: 0
 --- !u!61 &563964269
 BoxCollider2D:
@@ -3926,7 +3926,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 9.496853, y: -6.0985208}
+  m_Offset: {x: 9.496853, y: -6.268664}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3937,7 +3937,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.003563, y: 0.15781498}
+  m_Size: {x: 3.003563, y: 0.49810123}
   m_EdgeRadius: 0
 --- !u!61 &563964270
 BoxCollider2D:
@@ -3952,7 +3952,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 33.99223, y: -5.095909}
+  m_Offset: {x: 33.99223, y: -5.3017235}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3963,7 +3963,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.9973087, y: 0.18254471}
+  m_Size: {x: 5.997307, y: 0.5941739}
   m_EdgeRadius: 0
 --- !u!61 &563964271
 BoxCollider2D:
@@ -3978,7 +3978,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 30.993898, y: -8.127469}
+  m_Offset: {x: 30.993898, y: -8.273254}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3989,7 +3989,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.0111427, y: 0.23534203}
+  m_Size: {x: 4.0111427, y: 0.52691174}
   m_EdgeRadius: 0
 --- !u!1 &774735197
 GameObject:
