@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour {
     public float JumpTimerPlatformStopTimer = 0.1f;
 
     private string SLUG_MOVE_BOOL = "move";
+    private string SLUG_HIDE_BOOL = "hide";
     private string SLUG_IDLE_TRIGGER = "idle";
     private string SLUG_JUMP_TRIGGER = "jump";
     
@@ -113,7 +114,7 @@ public class PlayerMovement : MonoBehaviour {
         if (GetComponent<PlayerInput>().actions["Move"].IsPressed()) {
             horizontalMove = context.ReadValue<Vector2>().x;
             playerAnimator.SetBool(SLUG_MOVE_BOOL, true);
-
+            
         }else {
 
             playerAnimator.SetTrigger(SLUG_IDLE_TRIGGER);
@@ -124,7 +125,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void JumpDown(InputAction.CallbackContext context) {
+        var playerAnimator = playerIndex == 0 ? player1Animator : player2Animator;
+
         if (isPlatform || isGround) {
+            playerAnimator.SetBool(SLUG_HIDE_BOOL, false);
+
             StartCoroutine(JumpTimerPlatformStop(JumpTimerPlatformStopTimer));
             Physics2D.IgnoreLayerCollision(playerLayer, 9, true);
             StartCoroutine(DontIgnorePlatformCollider(turnOffColliderIgnoreTimer));
@@ -132,12 +137,17 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void PressDown(InputAction.CallbackContext context) {
+        var playerAnimator = playerIndex == 0 ? player1Animator : player2Animator;
 
         if (GetComponent<PlayerInput>().actions["PressDown"].IsPressed()) {
+            if (isPlatform || isGround) {
+                playerAnimator.SetBool(SLUG_HIDE_BOOL, true);
+            }
             jumpState = true;
         }
         else {
             jumpState = false;
+            playerAnimator.SetBool(SLUG_HIDE_BOOL, false);
         }
     }   
 
