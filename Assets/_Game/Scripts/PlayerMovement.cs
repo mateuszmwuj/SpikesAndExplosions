@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     public float horizontalMove = 0f;
 
     public bool jump = false;
+    public bool isPlatform;
 
     // Start is called before the first frame update
     void Start() {
@@ -26,5 +27,21 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate() {
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
         jump = false;
+
+        
     }
+
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.layer == 9 && !isPlatform) { //check the int value in layer manager(User Defined starts at 8) 
+
+            isPlatform = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision) {
+        if (collision.gameObject.layer == 9 && isPlatform) {
+            isPlatform = false;
+        }
+    }
+
 }
