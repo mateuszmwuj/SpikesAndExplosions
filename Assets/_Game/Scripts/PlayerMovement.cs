@@ -31,14 +31,21 @@ public class PlayerMovement : MonoBehaviour {
         
     }
 
-    void OnCollisionEnter(Collision collision) {
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log($"colision enter: name: {collision.gameObject.name}");
+        
         if (collision.gameObject.layer == 9 && !isPlatform) { //check the int value in layer manager(User Defined starts at 8) 
 
             isPlatform = true;
         }
     }
 
-    void OnCollisionExit(Collision collision) {
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log($"colision exit: name: {collision.gameObject.name}");
+
         if (collision.gameObject.layer == 9 && isPlatform) {
             isPlatform = false;
         }
