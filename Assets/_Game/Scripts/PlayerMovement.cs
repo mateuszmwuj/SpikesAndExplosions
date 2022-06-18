@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public bool jump = false;
     public bool isPlatform;
+    public bool isGround = true;
     public int player = 0;
     public int playerLayer = 6;
 
@@ -39,7 +40,11 @@ public class PlayerMovement : MonoBehaviour {
         if (collision.gameObject.layer == 9 && !isPlatform) { //check the int value in layer manager(User Defined starts at 8) 
 
             isPlatform = true;
-            
+        }
+
+        if (collision.gameObject.layer == 8 && !isGround) { //check the int value in layer manager(User Defined starts at 8) 
+
+            isGround = true;
         }
     }
 
@@ -47,6 +52,10 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (collision.gameObject.layer == 9 && isPlatform) {
             isPlatform = false;
+        }
+
+        if (collision.gameObject.layer == 8 && isGround) {
+            isGround = false;
         }
     }
     
@@ -56,9 +65,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void Jump(InputAction.CallbackContext context) {
-        jump = true;
-
-        if (isPlatform) {
+        if (isPlatform || isGround) {
+           jump = true;
             Physics2D.IgnoreLayerCollision(playerLayer, 9, true);
             StartCoroutine(DontIgnorePlatformCollider(turnOffColliderIgnoreTimer));
         }   
