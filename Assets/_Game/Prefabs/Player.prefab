@@ -265,6 +265,7 @@ MonoBehaviour:
   pointer2: {fileID: 3858384511311448134}
   turnOffColliderIgnoreTimer: 0.3
   JumpTimerPlatformStopTimer: 0.3
+  minVelocityToJump: 4
 --- !u!50 &2189207385956404635
 Rigidbody2D:
   serializedVersion: 4
@@ -510,6 +511,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ShootingBulletPlayer1: {fileID: 6219154870844548581}
   _ShootingBulletPlayer2: {fileID: 5602282588722840702}
+  _Fire1Anim: {fileID: 4990618946824226018}
+  _Fire2Anim: {fileID: 3761156812267508071}
 --- !u!70 &2497058427625349439
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -685,6 +688,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlugPlayer2
       objectReference: {fileID: 0}
+    - target: {fileID: 7382749612346891584, guid: 401002536ab3a8841a1a15ed207205e1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382749612346891584, guid: 401002536ab3a8841a1a15ed207205e1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382749612346891584, guid: 401002536ab3a8841a1a15ed207205e1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659946808603094432, guid: 401002536ab3a8841a1a15ed207205e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 401002536ab3a8841a1a15ed207205e1, type: 3}
 --- !u!1 &2186930326478144490 stripped
@@ -720,6 +743,12 @@ MonoBehaviour:
 --- !u!1 &3858384511311448134 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2771614399472542013, guid: 401002536ab3a8841a1a15ed207205e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1440444730188867963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3761156812267508071 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2868560866205464604, guid: 401002536ab3a8841a1a15ed207205e1,
     type: 3}
   m_PrefabInstance: {fileID: 1440444730188867963}
   m_PrefabAsset: {fileID: 0}
@@ -790,6 +819,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1669514591801030011, guid: bf668a11cb4e07b44ae3f399143a673a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081464266914758009, guid: bf668a11cb4e07b44ae3f399143a673a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081464266914758009, guid: bf668a11cb4e07b44ae3f399143a673a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081464266914758009, guid: bf668a11cb4e07b44ae3f399143a673a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf668a11cb4e07b44ae3f399143a673a, type: 3}
 --- !u!1 &84216521109582910 stripped
@@ -825,6 +874,12 @@ MonoBehaviour:
 --- !u!1 &84216521475154516 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1609211175842633193, guid: bf668a11cb4e07b44ae3f399143a673a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1692829487807248317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4990618946824226018 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5925644257888334687, guid: bf668a11cb4e07b44ae3f399143a673a,
     type: 3}
   m_PrefabInstance: {fileID: 1692829487807248317}
   m_PrefabAsset: {fileID: 0}

@@ -163,7 +163,7 @@ public class PlayerMovement : MonoBehaviour {
             pointer.transform.eulerAngles = new Vector3(pointer.transform.eulerAngles.x, pointer.transform.eulerAngles.y, newAngleZ);
         }else {
 
-            pointer.transform.eulerAngles = new Vector3(pointer.transform.eulerAngles.x, pointer.transform.eulerAngles.y, -90*transform.localScale.x);
+            pointer.transform.eulerAngles = new Vector3(pointer.transform.eulerAngles.x, pointer.transform.eulerAngles.y, -180*transform.localScale.x);
         }
  
     }
