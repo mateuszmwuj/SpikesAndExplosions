@@ -17,10 +17,9 @@ public class Most : MonoBehaviour
         
     }
 
-
+    
 
     public IEnumerator Destroy() {
-        Debug.Log(gameObject.name);
         Instantiate(preperExplode, transform.position, transform.rotation);
         yield return new WaitForSeconds(0.5f);
         Instantiate(explosion, transform.position, transform.rotation);
