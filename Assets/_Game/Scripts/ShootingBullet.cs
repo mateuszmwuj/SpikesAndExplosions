@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ShootingBullet : MonoBehaviour
 {
-    [SerializeField] private float _ShootDelay;
-    [SerializeField] private Bullet _BulletPrefab;
-    [SerializeField] private Transform _PrefabSpawner;
-    [SerializeField] private Transform _Gun;
-    private bool _canShoot = true;
-    private float _timerCounter;
-    private float _timerLimit;
+    [SerializeField] protected float _ShootDelay;
+    [SerializeField] protected Bullet _BulletPrefab;
+    [SerializeField] protected Transform _PrefabSpawner;
+    [SerializeField] protected Transform _Gun;
+    protected bool _canShoot = true;
+    protected float _timerCounter;
+    protected float _timerLimit;
 
-    private void Update()
+    protected virtual void Update()
     {
         _timerCounter += Time.deltaTime;
         if (_timerCounter > _timerLimit)

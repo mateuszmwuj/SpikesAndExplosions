@@ -4,53 +4,55 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D _Rd;
-    [SerializeField] private SpriteRenderer _SpriteRenderer;
-    [SerializeField] private float _DestroyTimer = 0.1f;
-    [SerializeField] private float _TimeForDestroy = 2f;
-    [SerializeField] private float _Speed;
-    private float timerCounter = 0.0f;
-    private float timeStart = 0.0f;
-    [SerializeField] private float delayForCheck = 0.1f;
-    private void OnCollisionEnter2D(Collision2D other)
+    [SerializeField] protected Rigidbody2D _Rd;
+    [SerializeField] protected SpriteRenderer _SpriteRenderer;
+    [SerializeField] protected float _DestroyTimer = 0.1f;
+    [SerializeField] protected float _TimeForDestroy = 2f;
+    [SerializeField] protected float _Speed;
+    [SerializeField] protected int _LayerToIgnore1;
+    [SerializeField] protected int _LayerToIgnore2;
+    protected float timerCounter = 0.0f;
+    protected float timeStart = 0.0f;
+    [SerializeField] protected float delayForCheck = 0.1f;
+    protected void OnCollisionEnter2D(Collision2D other)
     {
         //explosion
         if (timeStart - timerCounter > delayForCheck)
         {
             Debug.Log($"[Bullet] other.gameObject.layer: {other.gameObject.layer}");
 
-            if (other.gameObject.layer != 6 && other.gameObject.layer != 7)
+            if (other.gameObject.layer != _LayerToIgnore1 && other.gameObject.layer != _LayerToIgnore2)
             {
                 DestroyAfterTime(_DestroyTimer);
             }
         }
     }
 
-    private void Start()
+    protected void Start()
     {
         Movement(); 
         
         timeStart = Time.time;
     }
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         timerCounter += Time.deltaTime;
         CheckIfShouldBeDestroyed();
     }
-    private void Movement()
+    protected void Movement()
     {
         _Rd.velocity = transform.up * _Speed;
     }
-    private void DestroyAfterTime(float timer)
+    protected void DestroyAfterTime(float timer)
     {
         _SpriteRenderer.enabled = false;
         Invoke("DestroyNow", timer);
     }
-    private void DestroyNow()
+    protected void DestroyNow()
     {
         Destroy(gameObject);
     }
-    private void CheckIfShouldBeDestroyed()
+    protected void CheckIfShouldBeDestroyed()
     {
         if (timerCounter - timeStart > _TimeForDestroy)
             DestroyAfterTime(_DestroyTimer);

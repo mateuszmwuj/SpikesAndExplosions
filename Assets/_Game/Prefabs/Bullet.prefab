@@ -103,6 +103,8 @@ MonoBehaviour:
   _DestroyTimer: 0.01
   _TimeForDestroy: 0.5
   _Speed: 15
+  _LayerToIgnore1: 6
+  _LayerToIgnore2: 7
   delayForCheck: 0.1
 --- !u!50 &6521259602502125408
 Rigidbody2D:
