@@ -25,9 +25,19 @@ public class Helicopter : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider2D) {
+        
+        
+
         if (collider2D.gameObject.layer == 6 || collider2D.gameObject.layer == 7) {
             playerClose = true;
             moveTriger.enabled = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.layer == 10) {
+            Instantiate(boom, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
     }
 }
