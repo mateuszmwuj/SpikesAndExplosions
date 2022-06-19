@@ -20,5 +20,11 @@ public class EnemyJumpTriger : MonoBehaviour
         var enemyMovement = collider2D.gameObject.GetComponent<EnemyMovement>();
         if (enemyMovement)
             enemyMovement.Jump();
+
+        var dummyMovement = collider2D.gameObject.GetComponent<PlayerDummyMovement>();
+        if (dummyMovement)
+            dummyMovement.Jump();
     }
+
+
 }

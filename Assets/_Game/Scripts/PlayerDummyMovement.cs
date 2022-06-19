@@ -12,8 +12,8 @@ public class PlayerDummyMovement : MonoBehaviour
     public float distance;
     public bool moveNotJump = true;
     private bool suicide = false;
+    public float jumpForce = 15f;
 
-    
 
     [SerializeField] private float _maxDistanceMovement = 2f;
     private Vector3 _startPos;
@@ -58,5 +58,10 @@ public class PlayerDummyMovement : MonoBehaviour
     public void Suicide()
     {
         suicide = true;
+    }
+
+    public void Jump() {
+        _rb.velocity = new Vector2(_rb.velocity.x * right, jumpForce);
+        _Animator.SetTrigger("jump");
     }
 }
