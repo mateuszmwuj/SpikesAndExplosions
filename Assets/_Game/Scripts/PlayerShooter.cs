@@ -9,6 +9,8 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private ShootingBullet _ShootingBulletPlayer2;
     [SerializeField] private Animator _Fire1Anim;
     [SerializeField] private Animator _Fire2Anim;
+    [SerializeField] private AudioSource _AudioSource;
+    [SerializeField] private AudioClip _ShootClip;
 
     private Coroutine _fireCoroutine;
     private bool _canShoot = true;
@@ -25,6 +27,8 @@ public class PlayerShooter : MonoBehaviour
         if (_ShootingBulletPlayer1.gameObject.activeInHierarchy) _ShootingBulletPlayer1.ShootBullet();
         if (_ShootingBulletPlayer2.gameObject.activeInHierarchy) _ShootingBulletPlayer2.ShootBullet();
 
+        if(_AudioSource && _ShootClip)
+            _AudioSource.PlayOneShot(_ShootClip);
     }
 
     public void Fire(InputAction.CallbackContext context)

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Helicopter : MonoBehaviour
 {
+    [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip _clip;
     private Rigidbody2D _rb;
     public float heliSpeed;
     public bool playerClose = false;
     public Collider2D moveTriger;
     public GameObject boom;
+    [SerializeField] private SpriteRenderer _renderer;
 
     void Start()
     {
@@ -36,8 +39,11 @@ public class Helicopter : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.layer == 10) {
+            if(_source && _clip)
+                _source.PlayOneShot(_clip);
+            _renderer.enabled = false;
             Instantiate(boom, transform.position, transform.rotation);
-            Destroy(gameObject);
+            Destroy(gameObject,1f);
         }
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MostControler : MonoBehaviour
 {
+    [SerializeField] private AudioSource _AudioSource;
+
+    [SerializeField] private AudioClip _explosion;
     public GameObject part1;
     public GameObject part2;
     public GameObject part3;
@@ -30,17 +33,21 @@ public class MostControler : MonoBehaviour
     private IEnumerator Sekuency() {
         most.enabled = false;
         
+        if (_AudioSource && _explosion)
+                    _AudioSource.PlayOneShot(_explosion);
         StartCoroutine(part1.GetComponent<Most>().Destroy());
-
         yield return new WaitForSeconds(0.5f);
+        if (_AudioSource && _explosion)
+                    _AudioSource.PlayOneShot(_explosion);
         StartCoroutine(part2.GetComponent<Most>().Destroy());
-
         yield return new WaitForSeconds(0.5f);
+        if (_AudioSource && _explosion)
+                    _AudioSource.PlayOneShot(_explosion);
         StartCoroutine(part3.GetComponent<Most>().Destroy());
-
         yield return new WaitForSeconds(0.5f);
+        if (_AudioSource && _explosion)
+                    _AudioSource.PlayOneShot(_explosion);
         StartCoroutine(part4.GetComponent<Most>().Destroy());
-
 
     }
 

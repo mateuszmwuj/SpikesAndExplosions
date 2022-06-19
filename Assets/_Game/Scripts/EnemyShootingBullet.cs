@@ -6,14 +6,17 @@ using UnityEngine;
 public class EnemyShootingBullet : ShootingBullet
 {
     [SerializeField] private Animator _Animator;
+    [SerializeField] private AudioSource _AudioSource;
+    [SerializeField] private AudioClip _ShootClip;
     private string ENEMY_SHOT_TRIGGER = "shot";
     private string ENEMY_IDLE_TRIGGER = "idle";
     private Transform _Target;
     public float distanceToShoot = 4f;
+    public bool canShoot = true;
     protected override void Update()
     {
         FindPlayersAndInit();
-        if (_Target != null)
+        if (_Target != null && canShoot)
         {
             if (Vector3.Distance(transform.position, _Target.position) <= distanceToShoot)
             {
@@ -25,6 +28,9 @@ public class EnemyShootingBullet : ShootingBullet
 
                 if(_canShoot)
                 {
+                    if(_AudioSource && _ShootClip)
+                        _AudioSource.PlayOneShot(_ShootClip);
+
                     ShootBullet();
                     _Animator.SetTrigger(ENEMY_IDLE_TRIGGER);
                     _Animator.SetTrigger(ENEMY_SHOT_TRIGGER);

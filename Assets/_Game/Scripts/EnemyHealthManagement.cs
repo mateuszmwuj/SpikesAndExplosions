@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyHealthManagement : HealthManagement
 {
+    [SerializeField] private AudioSource _AudioSource;
+    [SerializeField] private List<AudioClip> _DeathClips;
     public Animator _Animator;
     public GameObject _Flag;
     private string ENEMY_DEATH_TRIGGER = "death";
@@ -17,13 +19,21 @@ public class EnemyHealthManagement : HealthManagement
         {
             if (_ParticlePrefab) 
                     Instantiate(_ParticlePrefab, transform.position, transform.rotation);
-                    
+
             LoseHealth();
         }
     }
     
     public override void Death()
     {
+        var enemyShootingBullet = GetComponent<EnemyShootingBullet>();
+        if (enemyShootingBullet)
+            enemyShootingBullet.canShoot = false;
+            
+        var randomSoundIndex = UnityEngine.Random.Range(0, _DeathClips.Count);
+        if(_AudioSource && _DeathClips.Count > 0)
+            _AudioSource.PlayOneShot(_DeathClips[randomSoundIndex]);
+
         gameObject.layer = 6;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         _Animator.SetTrigger(ENEMY_DEATH_TRIGGER);
