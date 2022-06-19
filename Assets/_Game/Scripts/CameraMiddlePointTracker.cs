@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraMiddlePointTracker : MonoBehaviour
 {
     public List<PlayerMovement> _listOfPlayers = new List<PlayerMovement>();
-
+    public float minPosY = -7.4f;
 
     private void Update()
     {
@@ -21,6 +21,8 @@ public class CameraMiddlePointTracker : MonoBehaviour
             {
                 transform.position = Vector3.Lerp(_listOfPlayers[0].transform.position, _listOfPlayers[1].transform.position, 0.5f);
             }
+            if (transform.position.y < minPosY)
+                transform.position = new Vector3(transform.position.x, minPosY, transform.position.z);
         }
     }
 
