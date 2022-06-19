@@ -6,6 +6,7 @@ using UnityEngine;
 public class HealthManagement : MonoBehaviour
 {
     [SerializeField] protected int _amountOfLives = 1;
+    [SerializeField] protected GameObject _ParticlePrefab;
 
     public int AmountOfLives => _amountOfLives;
 

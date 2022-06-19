@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected float _Speed;
     [SerializeField] protected int _LayerToIgnore1;
     [SerializeField] protected int _LayerToIgnore2;
+    [SerializeField] protected GameObject _ParticlePrefab;
     protected float timerCounter = 0.0f;
     protected float timeStart = 0.0f;
     [SerializeField] protected float delayForCheck = 0.1f;
@@ -23,6 +24,9 @@ public class Bullet : MonoBehaviour
 
             if (other.gameObject.layer != _LayerToIgnore1 && other.gameObject.layer != _LayerToIgnore2)
             {
+                if (_ParticlePrefab) 
+                    Instantiate(_ParticlePrefab, transform.position, transform.rotation);
+                    
                 DestroyAfterTime(_DestroyTimer);
             }
         }

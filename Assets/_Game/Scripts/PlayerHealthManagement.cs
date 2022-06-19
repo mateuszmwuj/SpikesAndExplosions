@@ -15,6 +15,9 @@ public class PlayerHealthManagement : HealthManagement
             if (other.gameObject.layer == 12 || other.gameObject.layer == 13)
             {
                 canBeHit = false;
+                if (_ParticlePrefab) 
+                    Instantiate(_ParticlePrefab, transform.position, transform.rotation);
+
                 LoseHealth();
             }
         }

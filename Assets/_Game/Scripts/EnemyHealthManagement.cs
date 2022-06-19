@@ -15,6 +15,9 @@ public class EnemyHealthManagement : HealthManagement
     {
         if (other.gameObject.layer == 10)
         {
+            if (_ParticlePrefab) 
+                    Instantiate(_ParticlePrefab, transform.position, transform.rotation);
+                    
             LoseHealth();
         }
     }

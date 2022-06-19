@@ -15,6 +15,9 @@ public class EnemyBullet : Bullet
 
             if (other.gameObject.layer == _LayerToHit1 || other.gameObject.layer == _LayerToHit2)
             {
+                if (_ParticlePrefab) 
+                    Instantiate(_ParticlePrefab, transform.position, transform.rotation);
+
                 DestroyAfterTime(_DestroyTimer);
             }
         }
