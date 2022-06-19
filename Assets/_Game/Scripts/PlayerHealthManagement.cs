@@ -5,14 +5,32 @@ using UnityEngine;
 
 public class PlayerHealthManagement : HealthManagement
 {
+    public float timerForPlayerToHit = 1f;
+    private float timerForHitCounter = 0f;
+    private bool canBeHit = true;
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == 12 || other.gameObject.layer == 13)
+        if (canBeHit)
         {
-            LoseHealth();
+            if (other.gameObject.layer == 12 || other.gameObject.layer == 13)
+            {
+                canBeHit = false;
+                LoseHealth();
+            }
         }
     }
-    
+
+    private void Update()
+    {
+        if (!canBeHit)
+            timerForHitCounter += Time.deltaTime;
+
+        if (timerForHitCounter >= timerForPlayerToHit)
+        {
+            canBeHit = true;
+            timerForHitCounter = 0f;
+        }
+    }
     public override void Death()
     {
 
