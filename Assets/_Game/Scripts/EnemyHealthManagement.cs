@@ -9,7 +9,7 @@ public class EnemyHealthManagement : HealthManagement
     public GameObject _Flag;
     private string ENEMY_DEATH_TRIGGER = "death";
 
-    public float _destroyDelay = 1f;
+    public float _destroyDelay = 2f;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -22,6 +22,7 @@ public class EnemyHealthManagement : HealthManagement
     public override void Death()
     {
         gameObject.layer = 6;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         _Animator.SetTrigger(ENEMY_DEATH_TRIGGER);
         _Flag.SetActive(true);
 
