@@ -105,6 +105,8 @@ MonoBehaviour:
   _Speed: 15
   _LayerToIgnore1: 6
   _LayerToIgnore2: 7
+  _ParticlePrefab: {fileID: 109766375585002407, guid: a663e6437d0f38d47a74c0641af95db8,
+    type: 3}
   delayForCheck: 0.1
 --- !u!50 &6521259602502125408
 Rigidbody2D:

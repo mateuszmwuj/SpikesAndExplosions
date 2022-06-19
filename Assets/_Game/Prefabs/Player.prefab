@@ -266,7 +266,6 @@ MonoBehaviour:
   pointer2: {fileID: 3858384511311448134}
   turnOffColliderIgnoreTimer: 0.3
   JumpTimerPlatformStopTimer: 0.3
-  minVelocityToJump: 4
 --- !u!50 &2189207385956404635
 Rigidbody2D:
   serializedVersion: 4
@@ -543,6 +542,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _amountOfLives: 3
+  _ParticlePrefab: {fileID: 5446764733830440839, guid: c03a349604e101b40ba2d99c58f41a0b,
+    type: 3}
+  timerForPlayerToHit: 1
 --- !u!1 &2189207386192419070
 GameObject:
   m_ObjectHideFlags: 0

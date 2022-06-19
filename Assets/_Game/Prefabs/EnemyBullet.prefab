@@ -105,6 +105,8 @@ MonoBehaviour:
   _Speed: 15
   _LayerToIgnore1: 12
   _LayerToIgnore2: 13
+  _ParticlePrefab: {fileID: 109766375585002407, guid: 301e2d9837bfffe40ae876b326c67dc5,
+    type: 3}
   delayForCheck: 0.5
   _LayerToHit1: 6
   _LayerToHit2: 7
