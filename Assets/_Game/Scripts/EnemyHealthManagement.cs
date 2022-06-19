@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class EnemyHealthManagement : HealthManagement
 {
+    public Animator _Animator;
+    private string ENEMY_DEATH_TRIGGER = "death";
+
+    public float _destroyDelay = 0.5f;
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.layer == 10)
@@ -15,6 +20,12 @@ public class EnemyHealthManagement : HealthManagement
     
     public override void Death()
     {
-        Destroy(gameObject);
+        _Animator.SetTrigger(ENEMY_DEATH_TRIGGER);
+
+        var EnemyMovement = GetComponent<EnemyMovement>();
+        if (EnemyMovement)
+            EnemyMovement.enabled = false;
+
+        Destroy(gameObject, _destroyDelay);
     }
 }
