@@ -6,9 +6,10 @@ using UnityEngine;
 public class EnemyHealthManagement : HealthManagement
 {
     public Animator _Animator;
+    public GameObject _Flag;
     private string ENEMY_DEATH_TRIGGER = "death";
 
-    public float _destroyDelay = 0.5f;
+    public float _destroyDelay = 1f;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -20,7 +21,9 @@ public class EnemyHealthManagement : HealthManagement
     
     public override void Death()
     {
+        gameObject.layer = 6;
         _Animator.SetTrigger(ENEMY_DEATH_TRIGGER);
+        _Flag.SetActive(true);
 
         var EnemyMovement = GetComponent<EnemyMovement>();
         if (EnemyMovement)

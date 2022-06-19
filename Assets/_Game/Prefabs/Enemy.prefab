@@ -326,6 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _amountOfLives: 1
   _Animator: {fileID: 5553327582632166810}
+  _Flag: {fileID: 7318755339797318298}
   _destroyDelay: 0.5
 --- !u!95 &5553327582632166810
 Animator:
@@ -372,7 +373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7318755339797318298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.16, y: 0.248, z: 0}
+  m_LocalPosition: {x: -0.02, y: 0.248, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 8215660977050515566}
